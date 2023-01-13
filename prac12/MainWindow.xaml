@@ -1,0 +1,31 @@
+﻿<Window x:Class="prac12.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:prac12"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Activated="Window_Activated">
+    <Grid x:Name="grid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <DatePicker x:Name="Dater" Grid.Column="2" HorizontalAlignment="Left" Margin="62,0,0,0" VerticalAlignment="Center"/>
+        <Label x:Name="Name_label" Grid.Column="2" Content="Введите название заметки:" HorizontalAlignment="Center" Height="28" Margin="0,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="180"/>
+        <Label x:Name="Description_label" Grid.Column="2" Content="Введите описание заметки:" HorizontalAlignment="Center" Height="28" Margin="0,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="180"/>
+        <Button x:Name="Delete_Button" Grid.Column="2" Content="Удалить" HorizontalAlignment="Center" Height="20" Margin="0,57,0,0" Grid.Row="4" VerticalAlignment="Top" Width="198"/>
+        <Button x:Name="Save_Button" Grid.Column="1" Content="Сохранить" HorizontalAlignment="Center" Height="20" Margin="0,57,0,0" Grid.Row="4" VerticalAlignment="Top" Width="198"/>
+        <TextBox x:Name="Name_Text" Grid.Column="2" HorizontalAlignment="Center" Margin="0,57,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Height="20"/>
+        <TextBox x:Name="Description_Text" Grid.Column="2" HorizontalAlignment="Center" Margin="0,56,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Height="20"/>
+        <ListBox x:Name="ListBox" HorizontalAlignment="Left" Height="327" Margin="0,10,0,0" Grid.RowSpan="4" Grid.Row="1" VerticalAlignment="Top" Width="396" />
+    </Grid>
+</Window>
