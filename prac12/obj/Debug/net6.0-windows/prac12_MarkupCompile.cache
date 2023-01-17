@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\я\Source\Repos\ker1xx\dasdsa\prac12\obj\Debug\net6.0-windows\
-prac12_jklfnix4_wpftmp
+C:\Users\klink\source\repos\dasdsa\prac12\obj\Debug\net6.0-windows\
+prac12
 none
 false
-TRACE;RELEASE;NET;NET6_0;NETCOREAPP
-C:\Users\я\Source\Repos\ker1xx\dasdsa\prac12\App.xaml
+TRACE;DEBUG;NET;NET6_0;NETCOREAPP
+C:\Users\klink\source\repos\dasdsa\prac12\App.xaml
 11407045341
 
-81551484957
-390377716374
+6-925185021
+195-626393584
 MainWindow.xaml;
 
-True
+False
 

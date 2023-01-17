@@ -20,19 +20,26 @@ namespace prac12
     /// </summary>
     public partial class MainWindow : Window, ICRUD
     {
-        DateTime Currentdate_ = DateTime.Now;
-        private List<Notes> Notes_list = y.deserialize<List<Notes>>("Notes.json");
         public MainWindow()
         {
             InitializeComponent();
-
+            Dater.Text = Convert.ToString(DateTime.Today);
         }
-        private  void ListCurrentDate()
+
+        private void Showinfo()
         {
-            List<Notes> sortedZam = y.Notes_list.Where(x => x.date.Date == Dater.DisplayDate).ToList();
+            int selected_index = Display_Notes.SelectedIndex;
+            try
+            {
+                List<Notes> SortedZam = y.Notes_list.Where(x => x.date.Date == Convert.ToDateTime(Dater.Text)).ToList();
+                Name_Text.Text = SortedZam[selected_index].name;
+                Description_Text.Text = SortedZam[selected_index].description;
+            }
+            catch (Exception e)
+            {
 
+            }
         }
-
         private void Window_Activated(object sender, EventArgs e)
         {
             Read();
@@ -41,29 +48,55 @@ namespace prac12
         {
             try
             {
-                List<Notes> sortedZam = y.Notes_list.Where(x => x.date.Date == Dater.DisplayDate).ToList();
-                ListBox.ItemsSource = sortedZam;
+                List<Notes> SortedZam = y.Notes_list.Where(x => x.date.Date == Convert.ToDateTime(Dater.Text)).ToList();
+                Display_Notes.ItemsSource = SortedZam.Select(x => x.name);
+
             }
-            catch(Exception e)
+            catch (Exception e)
             {
 
             }
         }
         public void Update()
         {
-
+            List<Notes> SortedZam = y.Notes_list.Where(x => x.date.Date == Convert.ToDateTime(Dater.Text)).ToList();
+            int selected_index = Display_Notes.SelectedIndex;
+            SortedZam[selected_index].name = Name_Text.Text;
+            SortedZam[selected_index].description = Description_Text.Text;
+            y.serialize(y.Notes_list, "Notes.json");
+            Read();
         }
         public void Create()
         {
             string new_note_name = Name_Text.Text;
             string new_note_description = Description_Text.Text;
-            DateTime new_note_date = Dater.DisplayDate;
+            DateTime new_note_date = Convert.ToDateTime(Dater.Text);
             Notes new_note = new(new_note_name, new_note_description, new_note_date);
             y.Notes_list.Add(new_note);
+            y.serialize(y.Notes_list, "Notes.json");
             Read();
         }
         public void Delete()
         {
+            string new_note_name = Name_Text.Text;
+            string new_note_description = Description_Text.Text;
+            DateTime new_note_date = Convert.ToDateTime(Dater.Text);
+            Notes item = new(new_note_name, new_note_description, new_note_date);
+            foreach (var note in y.Notes_list)
+            {
+                if (new_note_name == note.name)
+                {
+                    if (new_note_description == note.description)
+                    {
+                        if (new_note_date == note.date)
+                        {
+                            y.Notes_list.Remove(note);
+                            y.serialize(y.Notes_list, "Notes.json");
+                            return;
+                        }
+                    }
+                }
+            }
 
         }
 
@@ -74,7 +107,24 @@ namespace prac12
 
         private void Save_Button_Click(object sender, RoutedEventArgs e)
         {
+            y.serialize(y.Notes_list, "Notes.json");
             Update();
+        }
+
+        private void Dater_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Read();
+        }
+
+        private void Delete_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Delete();
+            Read();
+        }
+
+        private void Display_Notes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Showinfo();
         }
     }
 }

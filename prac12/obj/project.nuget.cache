@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "hEBB5wPDLwkptr1jAKCkJSGbDvE9D+FYYS37/UN95u6Pw6Pzmze+ZsRfDO2+tzKpfVCv32TJPy0TYNyNG9qixQ==",
+  "dgSpecHash": "FlI4n1zD7bLSiO/QER1Q/q69AyhjWDCd4AEl/9uqthrz6R6oQ2szlwCZ9jfOgkS289EGpaeejOtTOLSeQJtkXg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\я\\Source\\Repos\\ker1xx\\dasdsa\\prac12\\prac12.csproj",
+  "projectFilePath": "C:\\Users\\klink\\source\\repos\\dasdsa\\prac12\\prac12.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\я\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512"
+    "C:\\Users\\klink\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512"
   ],
   "logs": []
 }
